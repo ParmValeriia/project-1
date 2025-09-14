@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-100);
+    font-family: serif;
+    color: var(--text-100);
+}
+
+:root {
+        --primary-100:#f7cac9;
+    --primary-200:#5c5c5c;
+    --primary-300:#5c5c5c;
+    --accent-100:#5c5c5c;
+    --accent-200:#ebebeb;
+    --text-100:#333333;
+    --text-200:#5c5c5c;
+    --bg-100:#f8e8fa;
+    --bg-200:#f5f5e9;
+    --bg-300:#ccccc0;
+      
+}
+
+#openBtn{
+    position: fixed ;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: var(--primary-100);
+}
+
+.modal{
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+    background-color: var(--bg-200);
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    border: none;
+    padding: 1rem;
+    border: 5px;
+}
+
+label{
+    margin-top: 1rem;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 0.3rem;
+    background-color: transparent;
+    border: none;
+}
