@@ -1,0 +1,10 @@
+<headers>
+    <h1>Mykyta sales</h1>
+    <% if(new Date().getHours() < 12) {-%>
+        Good morning
+        <%} else if (new Date().getHours() < 18) {-%>
+        Good Afternoon
+        <% } else { -%>
+        Good Evening
+        <% } %>
+</headers>

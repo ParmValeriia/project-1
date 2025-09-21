@@ -38,7 +38,7 @@ body {
 .modal{
     position: fixed;
     inset: 0;
-    display: grid;
+    display: none;
     place-items: center;
     background-color: rgba(0, 0, 0, 0.3);
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("head.ejs") -%>
+
+    <body>
+        <%- include("header.ejs") -%>
+            <main>
+                <div class="wrapper">
+                    <% products.forEach((product)=> { -%>
+                        <div class="ads">
+                            <h3>
+                                <%= product.title %>
+                            </h3>
+                            <p>
+                                <%= product.desc %>
+                            </p>
+                        </div>
+                        <%}) -%>
+                </div>
+                <%- include("modal.ejs") -%>
+            </main>
+            <%- include("footer.ejs") -%>
+    </body>
+
+</html>
