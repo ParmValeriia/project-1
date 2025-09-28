@@ -73,3 +73,27 @@ label{
     background-color: transparent;
     border: none;
 }
+
+form #image {
+    display: none;
+}
+
+form .image-label {
+        position: absolute;
+    top: 1rem;
+    right: 0.3rem;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1rem;
+
+}
+
+.ads img {
+    width: 100%;
+}
