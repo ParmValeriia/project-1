@@ -28,6 +28,16 @@ app.set("views", "views")
 app.get("/",(req,res)=>{
     res.render("index", {products: ads})
 })
+app.get("/post/:id",(req,res)=>{
+    let postId = req.params.id
+    console.log(!ads[postId])
+    if(!ads[postId]){
+        res.render("NotFound")
+        return
+    }
+    res.render("post", {product: ads[postId]})
+    
+})
 
 app.post("/add", upload.fields([{name: "image"}]), (req,res)=>{
     let data =req.body

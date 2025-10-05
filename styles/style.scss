@@ -1,0 +1,82 @@
+@import "./colors.scss";
+@import "./clearDefault.scss";
+
+body {
+    background-color: $bg-100;
+    font-family: serif;
+    color:$text-100;
+}
+
+#openBtn{
+    position: fixed ;
+    bottom: 2rem;
+    right: 2rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    background-color:$primary-100;
+}
+
+.modal{
+    position: fixed;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+    background-color:$bg-100;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    input, textarea {
+        border: none;
+        padding: 1rem;
+        border: 5px;
+    }
+    label{
+        margin-top: 1rem;
+    }
+    .closeBtn {
+        position: absolute;
+        top: 1rem;
+        right: 0.3rem;
+        background-color: transparent;
+        border: none;
+    }
+    
+    #image {
+        display: none;
+    }
+    
+    .image-label {
+        position: absolute;
+        top: 1rem;
+        right: 0.3rem;
+        background-color: transparent;
+        border: none;
+        text-align: center;
+    }
+}
+
+
+
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 1rem;
+
+}
+
+.ads img {
+    width: 100%;
+}

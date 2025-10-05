@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("head.ejs") -%>
+<%- include("head.ejs") %>
 
     <body>
-        <%- include("header.ejs") -%>
+        <%- include("header.ejs") %>
             <main>
                 <div class="wrapper">
                     <% products.forEach((product)=> { -%>
-                        <div class="ads">
+                        <a class="ads" href="/post/<%= product.id %>">
                             <h3>
                                 <%= product.title %>
                             </h3>
                             <p>
                                 <%= product.desc %>
                             </p>
-                            <img src="/uploads/<%= product.image[0]%>">
-                        </div>
+                            <img src="/uploads/<%= product.image[0] %>">
+                        </a>
                         <%}) -%>
                 </div>
-                <%- include("modal.ejs") -%>
+                <%- include("modal.ejs") %>
             </main>
-            <%- include("footer.ejs") -%>
+            <%- include("footer.ejs") %>
     </body>
 
 </html>
