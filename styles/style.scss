@@ -1,5 +1,11 @@
-@import "./colors.scss";
-@import "./clearDefault.scss";
+@use "./colors" as *;
+@use "./clearDefault" as *;
+@use"./base/mixins" as mixin;
+@use "./base/functions" as f;
+@use "./components/header" as *;
+
+// @debug f.calculateSpacing(10,10);
+
 
 body {
     background-color: $bg-100;
@@ -74,9 +80,16 @@ form {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
     gap: 1rem;
+    @include mixin.responsive-container();
 
 }
 
 .ads img {
     width: 100%;
+
+}
+.ads{
+    @include mixin.adaptElement(1200px);
+    @include mixin.transparentShadow($primary-100);
+    @include mixin.removeLinkStyle;
 }

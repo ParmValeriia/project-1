@@ -1,0 +1,12 @@
+@use"../colors" as c;
+@use "../base/mixins" as m;
+
+header{
+    background: c.$primary-100 ;
+    color: c.$text-100;
+    font-family: monospace;
+    padding: 1rem;
+    text-align: center;
+    @include m.transparentShadow(c.$primary-100);
+    
+}

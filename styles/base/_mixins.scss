@@ -1,0 +1,45 @@
+@mixin responsive-container($max-width: 1200px, $max-padding: 16px){
+    max-width: $max-width;
+    padding-inline: $max-padding;
+    margin-inline: auto;
+
+    &{
+        @media (max-width: 768px){
+            padding-inline: 8px ;
+        }
+        @media (max-width: 480px){
+            padding-inline: 4px ;
+        }
+    }
+}
+
+
+
+@mixin adaptElement($max-width:400px, $padding: 16px){
+    width: 100%;
+    @media (min-width: 769px) and (max-width: $max-width){
+        padding-inlaine:$padding;
+        margin-inline:auto;
+    }
+@media (max-width:768px){
+    padding-inline: 8px;
+}
+@media (max-width:488px){
+    padding-inline: 4px;
+}
+}
+
+@mixin transparentShadow(
+ $color: black,
+ $opacity:0.5,
+ $x:0 ,
+ $y: 5px,
+ $blur: 5px
+){
+    box-shadow: $x $y $blur rgba($color,$opacity);
+}
+
+@mixin removeLinkStyle{
+    text-decoration: none;
+    color: inherit;
+}

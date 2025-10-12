@@ -1,0 +1,16 @@
+@function calculateSpacing($base, $multiplier) {
+    $spacing: (
+    );
+
+@for $i from 1 through $multiplier {
+    $value: $base * $i;
+
+    @if $value > 50 {
+        $value: 50;
+    }
+
+    $spacing: append($spacing, $value);
+}
+
+@return $spacing;
+}
