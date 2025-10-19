@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node --watch index.js",
+    "start": "node --watch index.js",
     "sass": "sass --watch styles/style.scss:static/style.css",
     "dev": "concurrently \"npm run sass\" node --watch index.js"
   },
@@ -13,9 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^9.2.1",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "multer": "^2.0.2",
+    "mysql2": "^3.15.2",
     "sass": "^1.93.2"
   }
 }
