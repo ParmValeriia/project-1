@@ -6,6 +6,7 @@ let db = require("./db")
 
 
 let app = express()
+app.use(express.urlencoded({ extended: true }))
 
 
 
@@ -24,7 +25,6 @@ const upload = multer({ storage })
 
 
 
-app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.set("view engine", "ejs")
 app.set("views", "views")
@@ -68,12 +68,13 @@ app.post("/add", upload.fields([{ name: "image" }]), (req, res) => {
 })
 
 app.post("/comment", (req, res) => {
-    let data = req
+    let data = req.body
     console.log(data)
-    db.query(`INSERT INTO comments set ?`, data, (err, result)=>{
-        if (err) res.status(500)
-        res.end()
-    })
+    // db.query(`INSERT INTO comments set ?`, data, (err, result)=>{
+    //     if (err) res.status(500)
+    //     res.end()
+    // })
+    res.end()
 })
 
 
