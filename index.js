@@ -24,8 +24,8 @@ const upload = multer({ storage })
 
 
 
-app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.set("view engine", "ejs")
 app.set("views", "views")
 
@@ -41,27 +41,42 @@ app.get("/", (req, res) => {
 })
 app.get("/post/:id", (req, res) => {
     let postId = req.params.id
-    console.log(!ads[postId])
-    if (!ads[postId]) {
-        res.render("NotFound")
-        return
-    }
-    res.render("post", { product: ads[postId] })
+    db.query(`SELECT p.*, c.id as commentId, c.author, c.comment FROM products as p LEFT JOIN comments as c 
+        ON p.id =c.postId
+        WHERE p.id = ?`, postId, (err, result) => {
+        if (err || result.length == 0) {
+            console.log(err)
+            return res.status(404).render("notFound")
+        }
+        let product = result[0]
+        console.log(result)
+        product.image = JSON.parse(product.image)
+        res.status(200).render("post", { product })
+    })
 
 })
 
 app.post("/add", upload.fields([{ name: "image" }]), (req, res) => {
-    let data ={... req.body}
+    let data = { ...req.body }
     console.log(data)
     data.image = req.files.image.map((file) => file.filename)
     data.image = JSON.stringify(data.image)
-db.query("INSERT INTO products SET?", data, (err)=>{
-    res.status(201)
-    res.send({ status: "ok" })
+    db.query("INSERT INTO products SET?", data, (err) => {
+        res.status(201)
+        res.send({ status: "ok" })
+    })
+})
+
+app.post("/comment", (req, res) => {
+    let data = req
+    console.log(data)
+    db.query(`INSERT INTO comments set ?`, data, (err, result)=>{
+        if (err) res.status(500)
+        res.end()
+    })
 })
 
 
-})
 
 app.get("/ads", (req, res) => {
     res.json(ads)

@@ -1,0 +1,27 @@
+<form id="comment-form">
+    <h2>add comment</h2>
+    <label for="author">author</label>
+    <input type="text" name="author" id="author">
+    <label for="comment"> comment </label>
+    <textarea name="comment" id="comment"></textarea>
+    <button type="submit">sdd comment</button>
+</form>
+<script>
+    document.querySelector("#comment-form")
+    .addEventListener("submit", (e)=>{
+        e.preventDefault()
+        let body ={
+            author : e.target["author"].value,
+            comment : e.target["comment"].value,
+            postId : window.location.pathname.split("/").pop()
+        }
+        console.log(body)
+        fetch("/comment", {
+            method:"POST",
+            headers:{
+                "Content-type" : "aplication/json"
+            },
+            body: JSON.stringify(body)
+        })
+    })
+</script>
